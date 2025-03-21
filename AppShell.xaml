@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Ristinolla.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Ristinolla"
+    Title="Ristinolla"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.NavBarHasShadow="True"
+    TabBarBackgroundColor="#190639"
+    TabBarUnselectedColor="White">
+
+    <!--  Hampurilaisvalikko  -->
+    <Shell.FlyoutHeader>
+        <Grid Padding="10" RowDefinitions="Auto,Auto">
+            <Label
+                Grid.Row="0"
+                Padding="0,0,0,10"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Tumma teema" />
+            <Switch
+                x:Name="TeemaSwitch"
+                Grid.Row="1"
+                Toggled="TeemaToggled" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--  Otsikko  -->
+    <Shell.TitleView>
+        <Grid BackgroundColor="#212121">
+            <Label
+                Padding="20,0"
+                FontAttributes="Bold"
+                FontFamily="Comic Sans MS"
+                FontSize="28"
+                Text="RISTINOLLA"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
+
+    <!--  TabBariin kaksi vaihtoehtoa  -->
+    <TabBar>
+        <Tab Title="Peli">
+            <ShellContent ContentTemplate="{DataTemplate local:AsetuksetPage}" Route="AsetuksetPage" />
+        </Tab>
+        <Tab Title="Tilastot">
+            <ShellContent ContentTemplate="{DataTemplate local:TilastotPage}" Route="TilastotPage" />
+        </Tab>
+    </TabBar>
+
+    <ShellContent ContentTemplate="{DataTemplate local:AsetuksetPage}" Route="AsetuksetPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:AsetuksetPage}" Route="MatsiPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:AsetuksetPage}" Route="TilastotPage" />
+</Shell>

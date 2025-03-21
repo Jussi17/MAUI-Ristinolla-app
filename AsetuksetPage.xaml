@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Ristinolla.AsetuksetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Asetukset">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Grid
+            ColumnDefinitions="*,*"
+            ColumnSpacing="20"
+            RowDefinitions="Auto,Auto,Auto,Auto,*">
+
+            <!--  Pelaaja 1 vasemmalla  -->
+            <VerticalStackLayout
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Label
+                    Padding="0,0,0,15"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Pelaaja X" />
+                <!--  Laitetaan samalle riville  -->
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Tietokone / Ihminen" VerticalOptions="Center" />
+                    <Switch x:Name="PelaajaSwitch" Toggled="PelaajaSwitch_Toggled" />
+                </HorizontalStackLayout>
+                <!--  Vaikeustaso Slider  -->
+                <Label
+                    x:Name="VaikeustasoLabel"
+                    FontSize="16"
+                    HorizontalOptions="Start"
+                    Text="Vaikeustaso (helppo - vaikea)" />
+                <Slider
+                    x:Name="VaikeustasoSlider"
+                    HorizontalOptions="Start"
+                    Maximum="1"
+                    Minimum="0"
+                    ValueChanged="VaikeusMuuttunut"
+                    WidthRequest="200"
+                    Value="0.5" />
+                <Picker
+                    x:Name="Pelaaja1Picker"
+                    Title="Valitse pelaaja"
+                    BackgroundColor="AliceBlue"
+                    HorizontalOptions="Start"
+                    IsVisible="False"
+                    SelectedIndexChanged="Pelaaja1Picker_SelectedIndexChanged"
+                    TextColor="Black"
+                    WidthRequest="200" />
+
+                <!--  Uuden pelaajan luontiin tarkoitetut kentät  -->
+                <HorizontalStackLayout Spacing="10">
+                    <Label
+                        x:Name="UusiPelaajaLabel"
+                        Padding="0,8,0,0"
+                        IsVisible="False"
+                        Text="Uusi pelaaja" />
+                    <Switch
+                        x:Name="UusiPelaajaSwitch"
+                        IsVisible="False"
+                        Toggled="UusiPelaajaSwitch_Toggled" />
+                </HorizontalStackLayout>
+                <VerticalStackLayout
+                    x:Name="UusiPelaajaGrid"
+                    IsVisible="False"
+                    Spacing="10">
+                    <Entry
+                        x:Name="EtuNimiEntry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Placeholder="Etunimi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Entry
+                        x:Name="SukuNimiEntry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Placeholder="Sukunimi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Entry
+                        x:Name="SyntymaVuosiEntry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Keyboard="Numeric"
+                        Placeholder="Syntymävuosi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Button
+                        BackgroundColor="Red"
+                        Clicked="Tallenna_Clicked"
+                        HorizontalOptions="Start"
+                        Text="Tallenna pelaaja"
+                        TextColor="White"
+                        WidthRequest="200" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!--  Pelaaja 2 oikealla  -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Label
+                    Padding="0,0,0,15"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Pelaaja O" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Tietokone / Ihminen" VerticalOptions="Center" />
+                    <Switch x:Name="VastustajaSwitch" Toggled="VastustajaSwitch_Toggled" />
+                </HorizontalStackLayout>
+                <!--  Vaikeustaso2 Slider  -->
+                <Label
+                    x:Name="Vaikeustaso2Label"
+                    FontSize="16"
+                    HorizontalOptions="Start"
+                    Text="Vaikeustaso (helppo - vaikea)" />
+                <Slider
+                    x:Name="Vaikeustaso2Slider"
+                    HorizontalOptions="Start"
+                    Maximum="1"
+                    Minimum="0"
+                    ValueChanged="Vaikeus2Muuttunut"
+                    WidthRequest="200"
+                    Value="0.5" />
+                <Picker
+                    x:Name="Pelaaja2Picker"
+                    Title="Valitse pelaaja"
+                    BackgroundColor="AliceBlue"
+                    HorizontalOptions="Start"
+                    IsVisible="False"
+                    SelectedIndexChanged="Pelaaja2Picker_SelectedIndexChanged"
+                    TextColor="Black"
+                    WidthRequest="200" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label
+                        x:Name="UusiPelaaja2Label"
+                        Padding="0,8,0,0"
+                        IsVisible="False"
+                        Text="Uusi pelaaja" />
+                    <Switch
+                        x:Name="UusiPelaaja2Switch"
+                        IsVisible="False"
+                        Toggled="UusiPelaaja2Switch_Toggled" />
+                </HorizontalStackLayout>
+                <!--  Uuden pelaajan kentät oikealla puolella  -->
+                <VerticalStackLayout
+                    x:Name="UusiPelaaja2Grid"
+                    IsVisible="False"
+                    Spacing="10">
+                    <Entry
+                        x:Name="EtuNimi2Entry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Placeholder="Etunimi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Entry
+                        x:Name="SukuNimi2Entry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Placeholder="Sukunimi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Entry
+                        x:Name="SyntymaVuosi2Entry"
+                        BackgroundColor="AliceBlue"
+                        HorizontalOptions="Start"
+                        Keyboard="Numeric"
+                        Placeholder="Syntymävuosi"
+                        TextColor="Black"
+                        WidthRequest="200" />
+                    <Button
+                        BackgroundColor="Red"
+                        Clicked="Tallenna2_Clicked"
+                        HorizontalOptions="Start"
+                        Text="Tallenna pelaaja"
+                        TextColor="White"
+                        WidthRequest="200" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+        <!--  Pelin aloittaminen nappi  -->
+        <Button
+            Padding="0,10"
+            BackgroundColor="Red"
+            Clicked="AloitaPeli_Clicked"
+            FontAttributes="Bold"
+            Text="Aloita Peli"
+            TextColor="White"
+            WidthRequest="200" />
+    </VerticalStackLayout>
+</ContentPage>

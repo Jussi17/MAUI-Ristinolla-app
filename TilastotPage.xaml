@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Ristinolla.TilastotPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Grid
+            ColumnDefinitions="*,*"
+            ColumnSpacing="20"
+            RowDefinitions="Auto,Auto,Auto,Auto,*">
+
+            <!--  Pelaajan valinta vasemmalla  -->
+            <VerticalStackLayout
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                Spacing="10">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Valitse pelaaja" />
+                <Picker
+                    x:Name="PelaajaPicker"
+                    BackgroundColor="AliceBlue"
+                    HorizontalOptions="Start"
+                    SelectedIndexChanged="PelaajaPicker_SelectedIndexChanged"
+                    TextColor="Black"
+                    WidthRequest="200" />
+            </VerticalStackLayout>
+
+            <!--  Tilastot oikealla  -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Label
+                    x:Name="TilastotLabel"
+                    Padding="0,0,0,15"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    Text="Tilastot" />
+
+                <!--  Border, jonka sisällä tilastot näkyvät  -->
+                <Border
+                    x:Name="Borderi"
+                    Padding="30,30,30,30"
+                    HorizontalOptions="Fill"
+                    IsVisible="False"
+                    Stroke="Red"
+                    StrokeShape="RoundRectangle 20,20,20,20"
+                    StrokeThickness="3">
+                    <Grid
+                        x:Name="StatsGrid"
+                        ColumnDefinitions="Auto,Auto"
+                        ColumnSpacing="15"
+                        IsVisible="False"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+                        RowSpacing="10">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Nimi:" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding KokoNimi}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Syntymävuosi:" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding Syntymavuosi}" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Voitot:" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding Voitot}" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Häviöt:" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="{Binding Haviot}" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Tasapelit:" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Text="{Binding Tasapelit}" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Peliaika yhteensä:" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Text="{Binding Kokonaispeliaika, StringFormat='{0:hh\\:mm\\:ss}'}" />
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

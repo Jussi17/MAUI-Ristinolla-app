@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Ristinolla.MatsiPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!--  Pelaajien nimet  -->
+        <Label
+            x:Name="OtteluLabel"
+            FontSize="28"
+            HorizontalOptions="Center"
+            Text="{Binding MatsiTitle}" />
+        <!--  Vuorossa oleva pelaaja  -->
+        <Label
+            x:Name="VuoroLabel"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{Binding NykyinenVuoroText}" />
+
+        <!--  Pelikenttä Grid  -->
+        <Grid
+            ColumnSpacing="5"
+            HorizontalOptions="Center"
+            RowSpacing="5"
+            VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="Button00"
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button01"
+                Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button02"
+                Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button10"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button11"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button12"
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button20"
+                Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button21"
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+            <Button
+                x:Name="Button22"
+                Grid.Row="2"
+                Grid.Column="2"
+                BackgroundColor="DarkBlue"
+                Clicked="KentanKlikkaus"
+                FontSize="36" />
+        </Grid>
+
+        <!--  Uuden pelin aloitus  -->
+        <Button
+            BackgroundColor="Red"
+            Clicked="UusiPeli"
+            HorizontalOptions="Center"
+            Text="Aloita uusi peli"
+            TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>
